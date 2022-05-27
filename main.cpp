@@ -1,11 +1,7 @@
 #include<iostream>
+#include "lecture_struct.h"
 using namespace std;
 
-struct Car{
-    string Model;
-    double EngineCapacity;
-    int Price;
-};
 
 void readOneModel(Car* data){
     string model;
