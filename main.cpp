@@ -69,7 +69,6 @@ Lecture initStruct(string line) {
     lecture.SubjectCode = stoi(res[9]);
     lecture.SubjectName = res[10];
     lecture.SubjectRating = stoi(res[11]);
-
     return lecture;
 }
 

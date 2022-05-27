@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-struct Lecture{
+struct Tutor{
     int TutorID;
     string Name;
     string DateJoined;
@@ -14,10 +14,4 @@ struct Lecture{
     int SubjectCode;
     string SubjectName;
     int SubjectRating;
-};
-
-struct Car{
-    string Model;
-    double EngineCapacity;
-    int Price;
 };
