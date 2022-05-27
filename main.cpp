@@ -2,7 +2,6 @@
 #include "lecture_struct.h"
 using namespace std;
 
-
 void readOneModel(Car* data){
     string model;
     double capacity;

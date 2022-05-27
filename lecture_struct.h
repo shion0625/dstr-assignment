@@ -2,18 +2,18 @@
 using namespace std;
 
 struct Lecture{
-    string TutorID;
+    int TutorID;
     string Name;
     string DateJoined;
     string DateTerminated;
     int HourlyPayRate;
     string Phone;
     string Address;
-    string TuitionCenterCode;
+    int TuitionCenterCode;
     string TuitionCenterName;
-    string SubjectCode;
+    int SubjectCode;
     string SubjectName;
-    string SubjectRating;
+    int SubjectRating;
 };
 
 struct Car{
