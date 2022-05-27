@@ -15,9 +15,3 @@ struct Tutor{
     string SubjectName;
     int SubjectRating;
 };
-
-struct Car{
-    string Model;
-    double EngineCapacity;
-    int Price;
-};
