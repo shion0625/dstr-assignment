@@ -3,4 +3,5 @@ project(dstr)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(dstr lecture_struct.h temp.cpp)
+
+add_executable(dstr lecture_struct.h management-link.cpp)

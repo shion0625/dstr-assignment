@@ -84,7 +84,6 @@ int main() {
         lecture[index] = initStruct(i);
         index++;
     }
-
 //    for (int i = 0; i < index; i++){
 //        cout << "Name:" << lecture[i].Name  << " Payrate:" << lecture[i].HourlyPayRate << endl;
 //    }
