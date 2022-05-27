@@ -1,5 +1,5 @@
 12345/ Tom Liddle/ 2022-04-14/ 2022-06-05/ 400/ 07012345678/ Jalan Teknologi 5, Taman Teknologi Malaysia, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia/ 123/ Kuala Lumpur/ 1221/ mathematics/ 5
 062443/ Ryuji/ 2022-04-14/ 2022-06-06/ 500/ 09012345678/ Tokyo Skytree 1 Chome-1-2 Oshiage, Sumida, Tokyo/ 245/ asia/ 435/ information/ 10
-062547/  Kaito/ 2022-04-14/ 2022-12-25/ 200/ 090999999/ 303 Gogaku apartment, 1-1-5, Nishi-Shinjuku Shinjuku-ku, Tokyo 160-0023, Japan/ 2/ Lumpur/ 12346/ technology/ 5
+062547/ Kaito/ 2022-04-14/ 2022-12-25/ 200/ 090999999/ 303 Gogaku apartment, 1-1-5, Nishi-Shinjuku Shinjuku-ku, Tokyo 160-0023, Japan/ 2/ Lumpur/ 12346/ technology/ 5
 058616/ Virgiawan/ 2022-04-14/ 2022-11-10/ 100/ 09045671238/ Gogaku,Inc Nagano Gogaku building F2, 1-1-1, Hakoshimizu Nagano-shi, Nagano-ken 380-0801, Japan/ 1/ Kuala / 9387/ science/ 4
 061715/ Auzan/ 2022-04-14/ 2022-09-03/ 10000/ 0801348762/ Green Heights #512, 4-20-8, Midori-cho, Musashino-shi, Tokyo, Japan/ 50/ tokyo/ 5678/ english/ 9
