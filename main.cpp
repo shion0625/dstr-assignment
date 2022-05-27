@@ -2,71 +2,94 @@
 #include "lecture_struct.h"
 #include <fstream>
 #include <vector>
+#include <sstream>
 
 using namespace std;
 
-void readOneModel(Car* data){
-    string model;
-    double capacity;
-    int price;
-    cout << "\nEnter model: ";
-    cin >> model;
-    cout << "Enter engine: ";
-    cin >> capacity;
-    cout << "Enter price: ";
-    cin >> price;
-
-    data->Model =model;
-    data->EngineCapacity = capacity;
-    data->Price = price;
-}
-void displayOneModel(Car* data){
-    printf("model: %s, capacity: %f, price: %i \n", data -> Model.c_str(), data -> EngineCapacity, data -> Price);
+//trim
+std::string trim(const std::string& string, const char* trimCharacterList = " \t\v\r\n"){
+    std::string result;
+// Find the position where you can find anything other than the characters you want to trim from the left side.
+    std::string::size_type left = string.find_first_not_of(trimCharacterList);
+    if (left != std::string::npos) {
+// If you find something other than the characters you want to trim from the left side, search from the right side as wellecture.
+        std::string::size_type right = string.find_last_not_of(trimCharacterList);
+// Determines the return value. Here, even if you search from the right side, it is not necessary to judge because there are always characters other than the characters to be trimmed.
+        result = string.substr(left, right - left + 1);
+    }
+    return result;
 }
 
-int main() {
-//    string filename("lecture.txt");
+//split func
+vector<string> split(const string &s, char delim) {
+    vector<string> elems;
+    stringstream ss(s);
+    string item;
+    while (getline(ss, item, delim)) {
+        if (!item.empty()) {
+            item = trim(item);
+            elems.push_back(item);
+        }
+    }
+    return elems;
+}
+// read lecture file
+vector<string> readFile(){
     vector<string> lines;
     string line;
     const char *path = "/Users/kokubunryuuji/Devspace/dstr-assignment/lecture.txt";
 
     ifstream ifs(path);
     if ( !ifs.is_open() ) {
-        cout << "hirakisou?" << endl;
         cerr << "Could not open the file - '"
              << path << "'" << endl;
-        return EXIT_FAILURE;
+        return lines;
     }
 
     while (getline(ifs, line)){
         lines.push_back(line);
     }
 
-    for (const auto &i : lines)
-        cout << i << endl;
-
     ifs.close();
-    return EXIT_SUCCESS;
-
-
-//    return 0;
-//    Car car1;
-//    car1.Model ="Persona";
-//    car1.EngineCapacity =1.6;
-//    car1.Price = 60000;
-//    Car car2;
-//    car2.Model ="Honda City";
-//    car2.EngineCapacity =1.5;
-//    car2.Price = 89000;
-//    Car car3;
-//    car3.Model ="Saga";
-//    car3.EngineCapacity =1.3;
-//    car3.Price = 45000;
-//    int totalPrice = car1.Price + car2.Price + car3.Price;
-//    cout <<" Total Price: "<< totalPrice << endl;
-//    Car * myCar = new Car;
-//    readOneModel(myCar);
-//    displayOneModel(myCar);
-
+    return lines;
 }
+//
+Lecture initStruct(string line) {
+    Lecture lecture;
+    const auto &res = split(line, '/');
+    lecture.TutorID = stoi(res[0]);
+    lecture.Name = res[1];
+    lecture.DateJoined = res[2];
+    lecture.DateTerminated = res[3];
+    lecture.HourlyPayRate = stoi(res[4]);
+    lecture.Phone = res[5];
+    lecture.Address = res[6];
+    lecture.TuitionCenterCode = stoi(res[7]);
+    lecture.SubjectName = res[8];
+    lecture.SubjectCode = stoi(res[9]);
+    lecture.SubjectName = res[10];
+    lecture.SubjectRating = stoi(res[11]);
+
+    return lecture;
+}
+
+int main() {
+    const auto &line = readFile();
+    
+    //get the number of lecture
+    int number_of_lecture = line.size();
+    Lecture lecture[number_of_lecture];
+
+    int index = 0;
+    for (const auto &i : line){
+        lecture[index] = initStruct(i);
+        index++;
+    }
+
+//    for (int i = 0; i < index; i++){
+//        cout << "Name:" << lecture[i].Name  << " Payrate:" << lecture[i].HourlyPayRate << endl;
+//    }
+}
+
+
 
