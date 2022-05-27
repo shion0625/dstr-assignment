@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//trim
+//Function to remove spaces before and after a string.
 std::string trim(const std::string& string, const char* trimCharacterList = " \t\v\r\n"){
     std::string result;
 // Find the position where you can find anything other than the characters you want to trim from the left side.
@@ -20,7 +20,7 @@ std::string trim(const std::string& string, const char* trimCharacterList = " \t
     return result;
 }
 
-//split func
+//
 vector<string> split(const string &s, char delim) {
     vector<string> elems;
     stringstream ss(s);
@@ -53,7 +53,7 @@ vector<string> readFile(){
     ifs.close();
     return lines;
 }
-//
+//By selecting a delimiter character, the string is delimited by that delimiter character and made into an array.
 Lecture initStruct(string line) {
     Lecture lecture;
     const auto &res = split(line, '/');
