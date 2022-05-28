@@ -39,6 +39,17 @@ void viewTutor() {
     {
         cout << "Tutor id:: " << curr->tutor.TutorID << endl;
         cout << "Tutor name:: " << curr->tutor.Name << endl;
+        cout << "Tutor dateJoined:: " << curr->tutor.DateJoined << endl;
+        cout << "Tutor dateTerminated:: " << curr->tutor.DateTerminated<< endl;
+        cout << "Tutor hourly payrate:: " << curr->tutor.HourlyPayRate << endl;
+        cout << "Tutor phone:: " << curr->tutor.Phone << endl;
+        cout << "Tutor Address:: " << curr->tutor.Address << endl;
+        cout << "Tutor TuitionCenterCode:: " << curr->tutor.TuitionCenterCode << endl;
+        cout << "Tutor TuitionCenterName:: " << curr->tutor.TuitionCenterName << endl;
+        cout << "Tutor SubjectCode:: " << curr->tutor.SubjectCode << endl;
+        cout << "Tutor SubjectName:: " << curr->tutor.SubjectName << endl;
+        cout << "Tutor SubjectRating:: " << curr->tutor.SubjectRating << endl;
+
         cout << "------------------------" << endl ;
         curr = curr->next;
     }
@@ -51,35 +62,35 @@ void addTutor(){
     cout << "Name: ";
     cin >> temp.Name;
 
-//    cout << "Pay Rate: ";
-//    cin >> temp.HourlyPayRate;
-//
-//
-//    cout << "Rating: ";
-//    cin >> temp.SubjectRating;
-//
-//    cout << "Date joined: ";
-//    cin >> temp.DateJoined;
-//
-//    cout << "Date terminated: ";
-//    cin >> temp.DateTerminated;
-//
-//    cout << "Phone: ";
-//    cin >> temp.Phone;
-//
-//    cout << "Address: ";
-//    cin >> temp.Address;
-//
-//    cout << "Center code: ";
-//    cin >> temp.TuitionCenterCode;
-//    cout << "Center Name: ";
-//    cin >> temp.TuitionCenterName;
-//
-//
-//    cout << "Subject code: ";
-//    cin >> temp.SubjectCode;
-//    cout << "Subject name: ";
-//    cin >> temp.SubjectName;
+    cout << "Pay Rate: ";
+    cin >> temp.HourlyPayRate;
+
+
+    cout << "Rating: ";
+    cin >> temp.SubjectRating;
+
+    cout << "Date joined: ";
+    cin >> temp.DateJoined;
+
+    cout << "Date terminated: ";
+    cin >> temp.DateTerminated;
+
+    cout << "Phone: ";
+    cin >> temp.Phone;
+
+    cout << "Address: ";
+    cin >> temp.Address;
+
+    cout << "Center code: ";
+    cin >> temp.TuitionCenterCode;
+    cout << "Center Name: ";
+    cin >> temp.TuitionCenterName;
+
+
+    cout << "Subject code: ";
+    cin >> temp.SubjectCode;
+    cout << "Subject name: ";
+    cin >> temp.SubjectName;
 
     push(temp);
 }
@@ -87,20 +98,7 @@ void addTutor(){
 void displayRecords(){
     viewTutor();
 }
-//void binarySearchId(int l,int r,int id){
-//
-//    if (r >= l) {
-//        int mid = l + (r - l) / 2;
-//        if (tutor[mid].TutorID == id){
-//            cout << "Tutir name: " << tutor[mid].Name << endl;
-//        }
-//
-//        if (tutor[mid].TutorID > id) binarySearchId(l, mid - 1, id);
-//
-//        binarySearchId(mid + 1, r, id);
-//    }
-//    return;
-//}
+
 void searchTutorId(){
     int id;
     cout << "Input tutor id: ";
@@ -250,81 +248,44 @@ void deleteModify() {
     }
 }
 
-//static struct node *concatante(struct node *a, struct node *b) {
-//    struct node *p;
-//    if (a == NULL) return b;
-//    else if (b == NULL) return a;
-//    for (p=a;p->next != NULL;p = p->next);
-//    p->next = b;
-//    return a;
-//}
-//
-//
-//struct node * quick_sort_lust (struct node *c) {
-//    int pivot;
-//    struct node *t;
-//    struct node *l_pivot = NULL;
-//    struct node *e_pivot = NULL;
-//    struct node *r_pivot = NULL;
-//
-//    if (c==NULL || c->next == NULL) return c;
-//    pivot = c->tutor.TutorID;
-//
-//    for (;c != NULL; c = t) {
-//        t = c ->next;
-//        if (c->next == l_pivot){
-//            c->next = l_pivot;
-//            l_pivot = c;
-//        }else if (c ->tutor.TutorID == pivot) {
-//            c->next = e_pivot;
-//            e_pivot = c;
-//        } else if (c ->tutor.TutorID > pivot) {
-//            c->next = r_pivot;
-//            r_pivot = c;
-//        }
-//    }
-//
-//    l_pivot = quick_sort_lust(l_pivot);
-//    r_pivot = quick_sort_lust(r_pivot);
-//    return concatante(l_pivot, concatante(e_pivot, r_pivot));
-//}
+void sortById() {
+    Tutor temp;
+    for(auto i = head; i->next != nullptr; i=i->next){
+        for(auto j=i->next; j!= nullptr; j=j->next) {
+            if(i->tutor.TutorID > j->tutor.TutorID){
+                temp = i->tutor;
+                i->tutor = j->tutor;
+                j->tutor =temp;
+            }
+        }
+    }
+}
 
-//void *sortList(node *head) {
-//    node *headUnsorted, *headSorted;
-//    node *max, *prevMax, *prevComp;
-//
-//    headUnsorted = head;
-//    headSorted = NULL;
-//    while(headUnsorted != NULL) {
-//        max = headUnsorted;
-//        prevMax = NULL;
-//        prevComp = headUnsorted;
-//        while (prevComp->next != NULL) {
-//            if ((prevComp->next)->tutor.TutorID > max->tutor.TutorID) {
-//                max = prevComp->next;
-//                prevMax = prevComp;
-//            }
-//            prevComp = prevComp->next;
-//        }
-//
-//        if (prevMax == NULL) {
-//            headUnsorted = max->next;
-//        }
-//        else {
-//            prevMax->next = max->next;
-//        }
-//
-//        if (headSorted == NULL) {
-//            headSorted = max;
-//            max->next = NULL;
-//        }
-//        else {
-//            max->next = headSorted;
-//            headSorted = max;
-//        }
-//    }
-//    return headSorted;
-//}
+void sortByPayrate() {
+    Tutor temp;
+    for(auto i = head; i->next != nullptr; i=i->next){
+        for(auto j=i->next; j!= nullptr; j=j->next) {
+            if(i->tutor.HourlyPayRate > j->tutor.HourlyPayRate){
+                temp = i->tutor;
+                i->tutor = j->tutor;
+                j->tutor =temp;
+            }
+        }
+    }
+}
+
+void sortByPerformance() {
+    Tutor temp;
+    for(auto i = head; i->next != nullptr; i=i->next){
+        for(auto j=i->next; j!= nullptr; j=j->next) {
+            if(i->tutor.SubjectRating > j->tutor.SubjectRating){
+                temp = i->tutor;
+                i->tutor = j->tutor;
+                j->tutor =temp;
+            }
+        }
+    }
+}
 
 
 void menu() {
@@ -336,11 +297,12 @@ void menu() {
     cout << "4. Search Tutors by overall performance (Rating)" << endl;
     cout << "5. Sort and display by Tutors ID in ascending order" << endl;
     cout << "6. Sort and display by Tutors Hourly Pay Rate in ascending order" << endl;
-    cout << "7. Sort and display by Tutors ID in ascending order" << endl;
+    cout << "7. Sort and display by Tutors ID in performance order" << endl;
     cout << "8. Modify a Tutor Record" << endl;
     cout << "9. Delete a Tutor Record" << endl;
     cout << "10. Exit" << endl;
     cout << "==================" << endl;
+    cout << ">> ";
 }
 int main() {
     int input = 0;
@@ -357,21 +319,21 @@ int main() {
             case 3:
                 searchTutorId();
                 break;
-//            case 4:
-//                searchTutorByRating();
-//                break;
+            case 4:
+                searchTutorbyRating();
+                break;
             case 5:
-//                quick_sort_lust(head);
+                sortById();
                 displayRecords();
                 break;
-//            case 6:
-//                sortAccessingOrderTutorsHourlyPayRate();
-//                displayRecords();
-//                break;
-//            case 7:
-//                sortAccessingOrderTutorsOverallPerformance();
-//                displayRecords();
-//                break;
+            case 6:
+                sortByPayrate();
+                displayRecords();
+                break;
+            case 7:
+                sortByPerformance();
+                displayRecords();
+                break;
             case 8:
                 modifyRecord();
                 break;
